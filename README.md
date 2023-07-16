@@ -34,11 +34,18 @@ cat > .gitignore <<EOF
 .venv
 __pycache__
 *.pyc
+.ipynb_checkpoints
 EOF
 
-# Create virtual environment and install kernel
+# Create virtual environment and install kernel. Run on host machine terminal.
 "python${VERSION}" -m venv .venv
 source .venv/bin/activate
 pip install ipykernel
+
+# Add kernal to JupyterHub. Run inside JupyterHub integrated terminal.
 python -m ipykernel install --user --name=$PROJECT
 ```
+
+## GitHub Workflows
+- [issues](.github/workflows/issues.yaml) - Adds new issues to default project
+- [terraform](.github/workflows/terraform.yaml) - Runs [terraform](./terraform/) to deploy infrastructure
