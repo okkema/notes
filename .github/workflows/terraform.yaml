@@ -26,6 +26,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
+          name: dist
           path: dist
   terraform:
     runs-on: ubuntu-latest
@@ -36,7 +37,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: dist
+          name: dist
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
