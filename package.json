@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/okkema/notes#readme",
   "dependencies": {
+    "esbuild": "^0.18.13"
+  },
+  "devDependencies": {
     "@cloudflare/workers-types": "^4.20230710.1",
-    "esbuild": "^0.18.13",
     "vitest": "^0.33.0",
     "wrangler": "^3.2.0"
   }
