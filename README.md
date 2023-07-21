@@ -49,4 +49,4 @@ python -m ipykernel install --user --name=$PROJECT
 
 ## GitHub Workflows
 - [issues](.github/workflows/issues.yaml) - Adds new issues to default project
-- [terraform](.github/workflows/terraform.yaml) - Builds worker and runs [terraform](./terraform/) to deploy infrastructure
+- [deploy](.github/workflows/deploy.yaml) - Builds worker with [npm](./package.json) and runs [terraform](./terraform/) to deploy infrastructure
