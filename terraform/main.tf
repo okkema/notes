@@ -15,3 +15,18 @@ module "secrets" {
   key        = each.key
   value      = each.value
 }
+
+resource "cloudflare_worker_script" "script" {
+  account_id = var.cloudflare_account_id
+  name       = "notes"
+  content    = file(abspath("${path.module}/../dist/index.js"))
+  module     = true
+}
+
+resource "cloudflare_worker_domain" "domain" {
+  account_id = var.cloudflare_account_id
+  hostname   = "public.${var.cloudflare_zone}"
+  service    = cloudflare_worker_script.script.name
+  zone_id    = var.cloudflare_zone_id
+}
+

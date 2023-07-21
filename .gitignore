@@ -1,0 +1,9 @@
+node_modules
+.terraform
+__pycache__
+.ipynb_checkpoints
+dist
+python/*
+!python/README.md
+projects/*
+!projects/README.md

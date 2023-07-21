@@ -14,6 +14,7 @@ sudo apt install wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev
 
 # Download, build, and install indicated Python version
 VERSION="3.11.4"
+cd python
 wget "https://www.python.org/ftp/python/${VERSION}/Python-${VERSION}.tgz"
 tar xzf "Python-${VERSION}.tgz" 
 cd "Python-${VERSION}"
@@ -27,8 +28,8 @@ Run these commands from within the JupyterHub integrated terminal.
 # Create workspace and git repository
 PROJECT="project_name"
 VERSION="3.11"
-mkdir $PROJECT
-cd $PROJECT
+mkdir -p "./projects/$PROJECT"
+cd "./projects/$PROJECT"
 git init
 cat > .gitignore <<EOF
 .venv
@@ -48,4 +49,4 @@ python -m ipykernel install --user --name=$PROJECT
 
 ## GitHub Workflows
 - [issues](.github/workflows/issues.yaml) - Adds new issues to default project
-- [terraform](.github/workflows/terraform.yaml) - Runs [terraform](./terraform/) to deploy infrastructure
+- [terraform](.github/workflows/terraform.yaml) - Builds worker and runs [terraform](./terraform/) to deploy infrastructure

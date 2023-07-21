@@ -1,0 +1,32 @@
+{
+  "name": "notes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Okkema Labs JupyterHub Notebooks",
+  "module": "dist/index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --format=esm",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okkema/notes.git"
+  },
+  "keywords": [
+    "okkema",
+    "jupyter",
+    "notes"
+  ],
+  "author": "Okkema Labs <correos@okkema.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okkema/notes/issues"
+  },
+  "homepage": "https://github.com/okkema/notes#readme",
+  "dependencies": {
+    "@cloudflare/workers-types": "^4.20230710.1",
+    "esbuild": "^0.18.13",
+    "vitest": "^0.33.0",
+    "wrangler": "^3.2.0"
+  }
+}
