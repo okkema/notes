@@ -8,6 +8,10 @@ on:
       - .terraformignore
       - .github/workflows/terraform.yaml
       - .nvmrc
+      - src/**
+      - package.json
+      - tsconfig.json
+      - wrangler.toml
 concurrency: deploy
 jobs:
   node:

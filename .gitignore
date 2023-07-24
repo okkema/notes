@@ -7,3 +7,4 @@ python/*
 !python/README.md
 projects/*
 !projects/README.md
+.wrangler

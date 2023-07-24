@@ -43,7 +43,7 @@ EOF
 source .venv/bin/activate
 pip install ipykernel
 
-# Add kernal to JupyterHub. Run inside JupyterHub integrated terminal.
+# Add kernel to JupyterHub. Run inside JupyterHub integrated terminal.
 python -m ipykernel install --user --name=$PROJECT
 ```
 
