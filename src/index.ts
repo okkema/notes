@@ -6,7 +6,6 @@ export default {
 	async fetch(request: Request, env: Environment) {
 		const url = new URL(request.url)
 		const { pathname, hostname } = url
-		console.log(pathname)
 		const subdomain = hostname.split(".")[0]
 		let base = `${subdomain}${pathname.replace(/\/$/, "")}`
 		let html: R2ObjectBody | null
