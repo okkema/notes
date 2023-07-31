@@ -5,7 +5,7 @@
   "description": "Okkema Labs JupyterHub Notebooks",
   "module": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --format=esm",
+    "build": "esbuild functions/index.ts --bundle --outdir=dist --platform=node --format=esm",
     "start": "wrangler dev",
     "test": "vitest run"
   },

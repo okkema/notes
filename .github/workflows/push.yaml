@@ -8,7 +8,7 @@ on:
       - .terraformignore
       - .github/workflows/terraform.yaml
       - .nvmrc
-      - src/**
+      - functions/**
       - package.json
       - tsconfig.json
       - wrangler.toml

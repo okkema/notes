@@ -1,6 +1,7 @@
 name = "notes"
-main = "./src/index.ts"
+main = "./functions/index.ts"
 compatibility_date = "2022-05-03"
+
 [[r2_buckets]]
 binding = "NOTES"
 preview_bucket_name = "notes"

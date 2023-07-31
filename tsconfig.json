@@ -8,6 +8,6 @@
 		"moduleResolution": "node",
 		"types": ["@cloudflare/workers-types"]
 	},
-	"include": ["src"],
+	"include": ["functions"],
 	"exclude": ["node_modules"]
 }
