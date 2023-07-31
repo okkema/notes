@@ -1,4 +1,4 @@
-name: deploy
+name: push
 on:
   push:
     branches:
@@ -12,7 +12,7 @@ on:
       - package.json
       - tsconfig.json
       - wrangler.toml
-concurrency: deploy
+concurrency: push
 jobs:
   node:
     runs-on: ubuntu-latest
