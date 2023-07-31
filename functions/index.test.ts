@@ -1,7 +1,6 @@
 import { unstable_dev } from "wrangler"
 import type { UnstableDevWorker } from "wrangler"
 import { describe, expect, it, beforeAll, afterAll } from "vitest"
-import { Miniflare } from "miniflare"
 
 describe("Worker", () => {
 	let worker: UnstableDevWorker
