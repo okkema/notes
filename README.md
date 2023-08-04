@@ -8,11 +8,14 @@ Workspaces are a collection of notebooks and other resources that share common d
 
 ### Repositories
 
-- [finance](https://github.com/cptchloroplast/finance)
+- [finance](https://github.com/okkema/finance)
 
 ## Pipelines
 
 Pipelines are run using GitHub Actions. 
+
+### Actions
+- [publish-notebook](.github/actions/publish-notebook/action.yaml) - Used by workspaces to build and publish Jupyter notebooks
 
 ### Workflows
 
