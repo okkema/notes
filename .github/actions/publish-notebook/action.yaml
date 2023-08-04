@@ -18,9 +18,9 @@ inputs:
     required: false
     default: dist
   destination_dir:
-    description: Destination directory. Default is "private"
+    description: Destination directory. Default is root
     required: false
-    default: private
+    default: ""
   prebuild:
     description: Prebuild script. Runs in bash
     required: false
@@ -28,6 +28,10 @@ inputs:
     description: Jupyter notebooks, separated by spaces. Default is all "*.ipynb"
     required: false
     default: "*.ipynb"
+  public:
+    description: Publish notebooks publicly
+    required: false
+    default: "false"
 runs:
   using: composite
   steps:
@@ -59,4 +63,4 @@ runs:
         r2_secret_key: ${{ inputs.r2_secret_key }}
         r2_bucket: ${{ inputs.r2_bucket }}
         source_dir: ${{ inputs.source_dir }}
-        destination_dir: ${{ inputs.destination_dir }}
+        destination_dir: ${{ format("{0}/{1}", inputs.public == "true" && "public" || "private", inputs.destination_dir) }}
