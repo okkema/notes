@@ -63,4 +63,4 @@ runs:
         r2_secret_key: ${{ inputs.r2_secret_key }}
         r2_bucket: ${{ inputs.r2_bucket }}
         source_dir: ${{ inputs.source_dir }}
-        destination_dir: ${{ format("{0}/{1}", inputs.public == "true" && "public" || "private", inputs.destination_dir) }}
+        destination_dir: ${{ format("{0}/{1}", (inputs.public == "true" && "public" || "private"), inputs.destination_dir) }}
