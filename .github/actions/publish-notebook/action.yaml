@@ -1,0 +1,62 @@
+name: publish-notebook
+description: Build and publish a Jupyter notebook
+inputs:
+  account_id:
+    description: Cloudflare account id
+    required: true
+  r2_access_key:
+    description: Cloudflare R2 access key
+    required: true
+  r2_secret_key:
+    description: Cloudflare R2 secret key
+    required: true
+  r2_bucket:
+    description: Cloudflare R2 bucket name
+    required: true
+  source_dir:
+    description: Source directory. Default is "dist"
+    required: false
+    default: dist
+  destination_dir:
+    description: Destination directory. Default is "private"
+    required: false
+    default: private
+  prebuild:
+    description: Prebuild script. Runs in bash
+    required: false
+  notebooks:
+    description: Jupyter notebooks, separated by spaces. Default is all "*.ipynb"
+    required: false
+    default: "*.ipynb"
+runs:
+  using: composite
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: pyproject.toml
+        cache: pip
+    - name: Install dependencies
+      shell: bash
+      run: pip install -r requirements.txt
+    - name: Run prebuild script
+      if: ${{ inputs.prebuild }} != ""
+      shell: bash
+      run: ${{ inputs.prebuild }}
+    - name: Build notebooks
+      shell: bash
+      run: jupyter nbconvert --to html --execute --output-dir $SOURCE_DIR $NOTEBOOKS
+      env:
+        SOURCE_DIR: ${{ inputs.source_dir }}
+        NOTEBOOKS: ${{ inputs.notebooks }}
+    - name: Upload artifacts
+      uses: okkema/github-action-r2@v0.1.1
+      with:
+        account_id: ${{ inputs.account_id }}
+        r2_access_key: ${{ inputs.r2_access_key }}
+        r2_secret_key: ${{ inputs.r2_secret_key }}
+        r2_bucket: ${{ inputs.r2_bucket }}
+        source_dir: ${{ inputs.source_dir }}
+        destination_dir: ${{ inputs.destination_dir }}
