@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Publish Jupyter notebooks
-        uses: ./.github/actions/publish-notebook
+        uses: okkema/notes/.github/actions/publish-notebook@main
         with:
           account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           r2_access_key: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
