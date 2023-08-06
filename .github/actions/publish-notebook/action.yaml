@@ -43,6 +43,8 @@ runs:
         then
           exit 1
         fi
+      env:
+        INPUT_VISIBILITY: ${{ inputs.visibility }}
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Setup Python
