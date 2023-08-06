@@ -35,6 +35,13 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Validate inputs
+      shell: bash
+      run: |
+        visibility=("public", "private")
+        if [[ ! "${visibility[*]}" =~ "$INPUT_VISIBILITY" ]] then
+          exit 1
+        fi
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Setup Python
@@ -56,7 +63,6 @@ runs:
         SOURCE_DIR: ${{ inputs.source_dir }}
         NOTEBOOKS: ${{ inputs.notebooks }}
     - name: Upload artifacts
-      if: ${{ inputs.visibility }} == "public" || ${{ inputs.visibility }} == "private"
       uses: okkema/github-action-r2@v0.1.1
       with:
         account_id: ${{ inputs.account_id }}

@@ -24,7 +24,7 @@ Create Python virtual environment and install Jupyter kernel.
 # Run on host machine terminal
 "python${VERSION}" -m venv .venv
 source .venv/bin/activate
-pip install ipykernel
+pip install ipykernel nbconvert
 ```
 
 Add kernel to JupyterHub.

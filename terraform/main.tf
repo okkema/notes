@@ -2,6 +2,10 @@ locals {
   secrets = {
     "TF_API_TOKEN" : var.TF_API_TOKEN,
     "ACTIONS_GITHUB_TOKEN" : var.ACTIONS_GITHUB_TOKEN
+    "CLOUDFLARE_R2_ACCESS_KEY": var.cloudflare_r2_access_key
+    "CLOUDFLARE_R2_SECRET_KEY": var.cloudflare_r2_secret_key
+    "CLOUDFLARE_R2_BUCKET": var.CLOUDFLARE_R2_BUCKET
+    "CLOUDFLARE_ACCOUNT_ID": var.cloudflare_account_id
   }
   name = "notes"
 }

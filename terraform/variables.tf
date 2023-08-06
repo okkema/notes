@@ -16,3 +16,4 @@ variable "TF_API_TOKEN" {
 variable "ACTIONS_GITHUB_TOKEN" {
   sensitive = true
 }
+variable "CLOUDFLARE_R2_BUCKET" {}
