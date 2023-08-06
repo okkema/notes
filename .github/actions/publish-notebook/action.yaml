@@ -39,7 +39,8 @@ runs:
       shell: bash
       run: |
         visibility=("public", "private")
-        if [[ ! "${visibility[*]}" =~ "$INPUT_VISIBILITY" ]] then
+        if [[ ! "${visibility[*]}" =~ "$INPUT_VISIBILITY" ]] 
+        then
           exit 1
         fi
     - name: Checkout repository
