@@ -7,7 +7,7 @@ on:
       - "*.ipynb"
       - "*.py"
       - .github/workflows/publish.yaml
-      - .github/actions/publish-notebook
+      - .github/actions/publish-notebook/action.yaml
 concurrency: publish
 jobs:
   publish:
