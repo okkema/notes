@@ -8,7 +8,9 @@ on:
       - "*.ipynb"
       - "*.py"
       - .github/workflows/push-notebooks.yaml
-      - .github/actions/publish-notebook/action.yaml # Remove this line in workspace
+      # Remove the following paths and add any external dependencies in workspace
+      - .github/actions/publish-notebook/action.yaml 
+      - "**/README.md"
 concurrency: push-notebooks
 jobs:
   publish:
