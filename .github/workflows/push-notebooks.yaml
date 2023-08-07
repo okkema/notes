@@ -1,0 +1,32 @@
+# Copy workflow to workspace for notebook publishing, update as needed
+name: push-notebooks
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "*.ipynb"
+      - "*.py"
+      - .github/workflows/push-notebooks.yaml
+      - .github/actions/publish-notebook/action.yaml # Remove this line in workspace
+concurrency: push-notebooks
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish Jupyter notebooks
+        uses: okkema/notes/.github/actions/publish-notebook@main # Pin this to a release, i.e. "0.1.0"
+        with:
+          account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          r2_access_key: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY }}
+          r2_secret_key: ${{ secrets.CLOUDFLARE_R2_SECRET_KEY }}
+          r2_bucket: ${{ secrets.CLOUDFLARE_R2_BUCKET }}
+          visibility: public # Default is "private"
+      #   source_dir: public # Default it "dist"
+      #   destination_dir: workspace-name
+      #   notebooks: results.ipynb # Separate with spaces and/or use globs. Default is "*.ipynb"
+      #   prebuild: |
+      #     # Download data and include it in source directory to be published along side notebooks
+      #     curl -H "Authorization: Bearer $SUPER_SECRET" https://api.example.com/feed.json -o public/feed.json
+      # env: # Environment variables can used prebuild script and notebook execution
+      #   SUPER_SECRET: ${{ secrets.SUPER_SECRET }}
