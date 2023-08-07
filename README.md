@@ -8,7 +8,7 @@ Workspaces are a collection of notebooks and other resources that share common d
 
 ### Repositories
 
-- [finance](https://github.com/okkema/finance)
+- [notes](https://github.com/okkema/notes) - Meta workspace for this repository, hosts the README
 
 ## Pipelines
 
