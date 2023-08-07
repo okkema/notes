@@ -16,13 +16,13 @@ Pipelines are run using GitHub Actions. Tags and releases are used to version ac
 
 ### Actions
 
-- [publish-notebook](.github/actions/publish-notebook/action.yaml) - Executes and publishes notebooks to hosting
+- [publish-notebook](./.github/actions/publish-notebook/action.yaml) - Executes and publishes notebooks to hosting
 
 ### Workflows
 
-- [issues](.github/workflows/issues.yaml) - Adds new issues to default project
-- [push-hosting](.github/workflows/push-hosting.yaml) - Builds worker with [npm](./package.json) and runs [terraform](./terraform/) to deploy infrastructure
-- [push-notebooks](.github/workflows/push-notebooks.yaml) - Used by workspaces to publish notebooks
+- [issues](./.github/workflows/issues.yaml) - Adds new issues to default project
+- [push-hosting](./.github/workflows/push-hosting.yaml) - Builds worker with [npm](./package.json) and runs [terraform](./terraform/) to deploy infrastructure
+- [push-notebooks](./.github/workflows/push-notebooks.yaml) - Used by workspaces to publish notebooks
 
 ## Hosting
 
