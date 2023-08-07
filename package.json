@@ -6,6 +6,7 @@
   "module": "dist/index.js",
   "scripts": {
     "build": "esbuild functions/index.ts --bundle --outdir=dist --platform=node --format=esm",
+    "postinstall": "git config core.hooksPath .githooks",
     "start": "wrangler dev",
     "test": "vitest run"
   },
