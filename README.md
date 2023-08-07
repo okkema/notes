@@ -12,9 +12,10 @@ Workspaces are a collection of notebooks and other resources that share common d
 
 ## Pipelines
 
-Pipelines are run using GitHub Actions. 
+Pipelines are run using GitHub Actions. Tags and releases are used to version actions for use in workspaces.
 
 ### Actions
+
 - [publish-notebook](.github/actions/publish-notebook/action.yaml) - Executes and publishes notebooks to hosting
 
 ### Workflows
