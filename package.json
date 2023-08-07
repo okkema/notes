@@ -2,7 +2,7 @@
   "name": "notes",
   "version": "0.1.0",
   "private": true,
-  "description": "Okkema Labs JupyterHub Notebooks",
+  "description": "JupyterHub workspaces, pipelines, and hosting",
   "module": "dist/index.js",
   "scripts": {
     "build": "esbuild functions/index.ts --bundle --outdir=dist --platform=node --format=esm",
@@ -16,14 +16,15 @@
   "keywords": [
     "okkema",
     "jupyter",
-    "notes"
+    "cloudflare",
+    "terraform"
   ],
   "author": "Okkema Labs <correos@okkema.org>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/okkema/notes/issues"
   },
-  "homepage": "https://github.com/okkema/notes#readme",
+  "homepage": "https://public.notes.okkema.org",
   "dependencies": {
     "esbuild": "^0.18.13"
   },

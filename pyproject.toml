@@ -1,0 +1,14 @@
+[project]
+name = "notes"
+version = "0.1.0"
+description = "JupyterHub workspaces, pipelines, and hosting"
+readme = "README.md"
+requires-python = "3.11"
+license = { file = "LICENSE.md" }
+keywords = ["okkema", "jupyter", "cloudflare", "terraform"]
+authors = [{ name = "Okkema Labs", email = "correos@okkema.org" }]
+
+[project.urls]
+"Homepage" = "https://public.notes.okkema.org"
+"Bug Reports" = "https://github.com/okkema/notes/issues"
+"Source" = "https://github.com/okkema/notes"
