@@ -30,5 +30,6 @@ jobs:
       #   prebuild: |
       #     # Download data and include it in source directory to be published along side notebooks
       #     curl -H "Authorization: Bearer $SUPER_SECRET" https://api.example.com/feed.json -o public/feed.json
+      #   hide_code: true # Hide code blocks
       # env: # Environment variables can used prebuild script and notebook execution
       #   SUPER_SECRET: ${{ secrets.SUPER_SECRET }}

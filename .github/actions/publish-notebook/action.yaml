@@ -32,6 +32,10 @@ inputs:
     description: Published notebook visibility. Values are "public" or "private". Default is "private"
     required: false
     default: private
+  hide_code:
+    description: Hide code blocks
+    required: false
+    default: ""
 runs:
   using: composite
   steps:
@@ -61,10 +65,11 @@ runs:
       run: ${{ inputs.prebuild }}
     - name: Build notebooks
       shell: bash
-      run: jupyter nbconvert --to html --execute --output-dir $SOURCE_DIR $NOTEBOOKS
+      run: jupyter nbconvert --to html --execute --output-dir $SOURCE_DIR $HIDE_CODE $NOTEBOOKS
       env:
         SOURCE_DIR: ${{ inputs.source_dir }}
         NOTEBOOKS: ${{ inputs.notebooks }}
+        HIDE_CODE: ${{ inputs.hide_code != '' && '--no-input' || '' }}
     - name: Upload artifacts
       uses: okkema/github-action-r2@v0.1.1
       with:
