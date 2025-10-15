@@ -39,9 +39,14 @@ module "worker" {
   name         = var.github_repository
   content_file = abspath("${path.module}/../dist/index.js")
   hostnames    = ["public.${var.github_repository}", "private.${var.github_repository}"]
+  compatibility_flags = ["nodejs_compat_v2"]
   buckets = [{
     bucket_name = var.github_repository
-    name        = "NOTES"
+    name        = "BUCKET"
+  }]
+  secrets = [{
+    name = "SENTRY_DSN"
+    text = module.sentry.dsn
   }]
 }
 
@@ -61,4 +66,12 @@ module "role" {
   version = "~> 0.2"
 
   name = local.role
+}
+
+module "sentry" {
+  source  = "app.terraform.io/okkema/project/sentry"
+  version = "~> 0.4"
+
+  github_repository = var.github_repository
+  platform          = "other"
 }

@@ -5,8 +5,7 @@
 Create workspace and initialize git repository.
 
 ```bash
-PROJECT="project_name"
-VERSION="3.11" # Minor version
+PROJECT="my-project"
 mkdir -p $PROJECT
 cd $PROJECT
 git init
@@ -22,6 +21,7 @@ Create Python virtual environment and install Jupyter kernel.
 
 ```bash
 # Run on host machine terminal
+VERSION="3.11" # Minor version
 "python${VERSION}" -m venv .venv
 source .venv/bin/activate
 pip install ipykernel nbconvert

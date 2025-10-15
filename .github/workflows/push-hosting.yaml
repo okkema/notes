@@ -7,7 +7,7 @@ on:
       - .github/workflows/push-hosting.yaml
       - .nvmrc
       - .terraformignore
-      - functions/**
+      - src/**
       - terraform/**
       - package.json
       - tsconfig.json
