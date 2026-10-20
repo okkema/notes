@@ -16,3 +16,9 @@ variable "ACTIONS_GITHUB_TOKEN" {
   sensitive = true
 }
 variable "CLOUDFLARE_R2_BUCKET" {}
+
+variable "google_billing_account" {}
+
+variable "cloudflare_r2_endpoint_url" {}
+
+variable "google_unpaywall_email" {}

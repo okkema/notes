@@ -27,6 +27,15 @@ jobs:
         run: npm ci --omit dev
       - name: Build Worker
         run: npm run build
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Package Google Function
+        working-directory: src/google
+        run: |
+          mkdir -p ../../dist
+          zip -r ../../dist/notes.zip . -x "*__pycache__*"
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
