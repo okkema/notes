@@ -18,4 +18,13 @@ describe("Worker", () => {
 		const text = await resp.text()
 		expect(text).toBeDefined()
 	})
+
+	it("should return 404 for POST on private root", async () => {
+		const ctx = createExecutionContext()
+		const req = new Request("https://private.example.com", { method: "POST" })
+		// @ts-expect-error
+		const resp = await worker.fetch(req, env, ctx)
+		await waitOnExecutionContext(ctx)
+		expect(resp.status).toBe(404)
+	})
 })
